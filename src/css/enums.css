@@ -1,0 +1,156 @@
+.screen > .container {
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+.screen > .container > .container {
+    z-index: 2;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    padding-right: 50px;
+    display: flex;
+    gap: 50px;
+    padding: 50px;
+}
+.screen > .container > .container::-webkit-scrollbar {
+    width: 5px;
+}
+.screen > .container > .container::-webkit-scrollbar-thumb {
+    background-color: var(--tertiary);
+    border-radius: 5px;
+}
+.screen > .container > .bg {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.25;
+    background: linear-gradient(to bottom right, var(--primary), var(--tertiary), var(--primary), var(--tertiary), var(--primary));
+    animation: blend 10s infinite alternate ease-in-out;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.screen > .container .box {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+    background-color: color-mix(in srgb, transparent 97.5%, var(--white));
+    border-radius: 8px;
+}
+.screen > .container .box > .content {
+    width: 100%;
+    height: max-content;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    gap: 50px;
+}
+.screen > .container .box > .content > .center {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.screen > .container .box > .content > .center > .name {
+    font-size: 70px;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: center;
+}
+.screen > .container .box > .content > .center > .description {
+    color: var(--white);
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.screen > .container .box > .content > .title {
+    display: flex;
+    gap: 50px;
+}
+.screen > .container .box > .content > .title * {
+    margin: auto 0;
+}
+.screen > .container .box > .content > .title > .flex {
+    display: flex;
+    gap: 20px;
+}
+.screen > .container .box > .content > .title span {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--white);
+}
+.screen > .container .box > .content > .title svg {
+    height: 30px;
+    width: 30px;
+    fill: var(--white);
+}
+.screen > .container .box > .content > .title > button {
+    background-color: color-mix(in srgb, transparent 90%, var(--primary));
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+    width: max-content;
+    cursor: pointer;
+}
+.screen > .container .box > .content > .title > button > * {
+    margin: auto 0;
+}
+.screen > .container .box > .content > .title > button > span {
+    min-width: max-content;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 500;
+}
+.screen > .container .box > .content > .title > button > svg {
+    fill: var(--primary);
+    width: 10px;
+    min-width: 10px;
+    height: 10px;
+}
+
+.screen > .container .box > .content > .title > .input {
+    background-color: color-mix(in srgb, transparent 90%, var(--primary));
+    border: none;
+    border-radius: 4px;
+    display: flex;
+    width: max-content;
+    cursor: pointer;
+}
+.screen > .container .box > .content > .title > .input > input {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    padding-right: 0;
+    width: 300px;
+    outline: none;
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 500;
+}
+.screen > .container .box > .content > .title > .input > input::placeholder {
+    font-size: 13px;
+    color: var(--primary);
+    font-weight: 500;
+}
+.screen > .container .box > .content > .title > .input > button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 40px;
+    display: flex;
+    cursor: pointer;
+}
+.screen > .container .box > .content > .title > .input > button > svg {
+    margin: auto;
+    fill: var(--primary);
+    height: 11px;
+    width: 11px;
+}

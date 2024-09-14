@@ -1,0 +1,322 @@
+:root {
+    --primary: #479c6e;
+    --secondary: #141927;
+    --tertiary: #05070C;
+    --white: #F5F5FF;
+}
+@keyframes blend {
+    0% {
+        filter: blur(100px);
+    }
+    50% {
+        filter: blur(150px);
+    }
+    50% {
+        filter: blur(100px);
+    }
+    50% {
+        filter: blur(200px);
+    }
+    100% {
+        filter: blur(100px);
+    }
+}
+@font-face {
+    font-family: 'Lapsus';
+    src: url('../font/LapsusPro-Bold.woff2') format('woff2'),
+    url('../font/LapsusPro-Bold.woff') format('woff');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-Thin.woff2') format('woff2'),
+         url('../font/Poppins-Thin.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-Light.woff2') format('woff2'),
+         url('../font/Poppins-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-Regular.woff2') format('woff2'),
+         url('../font/Poppins-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-Medium.woff2') format('woff2'),
+         url('../font/Poppins-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-Bold.woff2') format('woff2'),
+         url('../font/Poppins-Bold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-ExtraBold.woff2') format('woff2'),
+         url('../font/Poppins-ExtraBold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-ThinItalic.woff2') format('woff2'),
+         url('../font/Poppins-ThinItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-LightItalic.woff2') format('woff2'),
+         url('../font/Poppins-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-RegularItalic.woff2') format('woff2'),
+         url('../font/Poppins-RegularItalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-MediumItalic.woff2') format('woff2'),
+         url('../font/Poppins-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Marianne-BoldItalic.woff2') format('woff2'),
+         url('../font/Marianne-BoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url('../font/Poppins-ExtraBoldItalic.woff2') format('woff2'),
+         url('../font/Poppins-ExtraBoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    text-size-adjust: 100%;
+    background-color: var(--secondary);
+    height: 100%;
+}
+button,input,a {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#contextmenu {
+    background-color: var(--tertiary);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: max-content;
+    width: max-content;
+    z-index: 1000;
+    padding: 10px;
+    gap: 10px;
+    user-select: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.9);
+    box-shadow: 0 0 20px 5px #00000066;
+    transition-duration: 0.15s;
+}
+#contextmenu[visible] {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+#contextmenu > button {
+    cursor: pointer;
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    gap: 10px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+#contextmenu > .separator {
+    padding: 0;
+    height: 2px;
+    background-color: var(--secondatry);
+    width: calc(100% - 20px);
+    margin: 0 auto;
+}
+#contextmenu > button > * {
+    z-index: 1;
+}
+#contextmenu > button > svg {
+    fill: var(--white);
+    height: 16px;
+    width: 16px;
+    min-width: 16px;
+    margin: auto 0;
+}
+#contextmenu > button > span {
+    margin: auto 0;
+    font-size: 12px;
+    color: var(--white);
+}
+#contextmenu > button > .bg {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border-radius: 4px;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    transition-duration: 0.3s;
+}
+
+#contextmenu > button:hover > .bg {
+    background-color: var(--primary);
+}
+
+.sidebar {
+    background-color: var(--tertiary);
+    width: 350px;
+    height: 100%;
+    display: flex;
+    min-width: 350px;
+    flex-direction: column;
+}
+.sidebar > .title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    gap: 0px;
+    min-height: max-content;
+    padding: 50px;
+}
+.sidebar > .title > .name {
+    margin: auto;
+    font-size: 45px;
+    font-weight: 600;
+    color: var(--white);
+}
+.sidebar > .title > .desc {
+    margin: auto;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--white);
+}
+.sidebar > .enum {
+    display: grid;
+    height: 100%;
+    overflow-y: auto;
+    grid-auto-rows: max-content;
+    gap: 10px;
+    padding: 20px;
+}
+.sidebar > .enum::-webkit-scrollbar {
+    width: 10px;
+}
+.sidebar > .enum::-webkit-scrollbar-thumb {
+    border: solid 4px var(--tertiary);
+    background-color: var(--secondary);
+    border-radius: 10px;
+}
+.sidebar > .enum > button {
+    cursor: pointer;
+    display: flex;
+    gap: 20px;
+    border: none;
+    outline: none;
+    padding: 20px;
+    text-decoration: none;
+    position: relative;
+    background-color: transparent;
+}
+.sidebar > .enum > button > .bg {
+    position: absolute;
+    height: 100%;
+    z-index: 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    transition-duration: 0.3s;
+}
+.sidebar > .enum > button > * {
+    margin: auto 0;
+}
+.sidebar > .enum > button > svg {
+    z-index: 1;
+    height: 20px;
+    min-width: 20px;
+    width: 20px;
+    fill: var(--white);
+}
+.sidebar > .enum > button > span {
+    z-index: 1;
+    color: var(--white);
+    font-size: 16px;
+    margin: auto 0;
+    font-weight: 300;
+}
+
+.sidebar > .enum > button:hover > .bg {
+    background-color: color-mix(in srgb, var(--primary), var(--tertiary) 99%);
+}
+
+.sidebar > .enum > button:active > .bg {
+    background-color: color-mix(in srgb, var(--primary), var(--tertiary) 98.5%);
+}
+
+.sidebar > .enum > button[selected] > span {
+    color: var(--primary);
+    font-weight: 500;
+}
+.sidebar > .enum > button[selected] > svg {
+    fill: var(--primary);
+}
+.sidebar > .enum > button[selected] > .bg {
+    background-color: color-mix(in srgb, var(--primary), var(--tertiary) 95%);
+}
+
+.screen {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+}
+.screen::-webkit-scrollbar {
+    width: 10px;
+}
+.screen::-webkit-scrollbar-thumb {
+    border: solid 4px var(--secondary);
+    background-color: var(--tertiary);
+    border-radius: 10px;
+}
